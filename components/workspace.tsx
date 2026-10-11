@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 import { AlertCircle } from "lucide-react";
 import { useWorkspaceController } from "@/application/use-workspace-controller";
 import type { WorkspaceRepository } from "@/application/workspace-repository";
@@ -18,6 +19,9 @@ import { SettingsScreen } from "@/features/settings/settings-screen";
 import { ProjectDialog } from "@/features/projects/project-dialog";
 import { TaskDialog } from "@/features/projects/task-dialog";
 import { IntegrationPreviewDialog } from "@/features/creative/integration-preview-dialog";
+
+const HomeEditor = dynamic(() => import("@/integrations/builder/home-editor"));
+const builderApiKey = process.env.NEXT_PUBLIC_BUILDER_API_KEY?.trim();
 
 // Composition root: swapping the adapter never requires editing a visual screen.
 const demoRepository = new BrowserWorkspaceRepository();
@@ -74,7 +78,13 @@ export default function Workspace({
             </div>
           ) : (
             <>
-              {page === "Home" && <HomeScreen {...controller} />}
+              {page === "Home" && (
+                builderApiKey ? (
+                  <HomeEditor apiKey={builderApiKey} controller={controller}>
+                    <HomeScreen {...controller} />
+                  </HomeEditor>
+                ) : <HomeScreen {...controller} />
+              )}
               {page === "Projects" && <ProjectsScreen {...controller} />}
               {page === "Project" && <ProjectScreen {...controller} />}
               {page === "Activity" && <ActivityScreen {...controller} />}

@@ -51,3 +51,9 @@ npm run test:e2e   # Browser workflows; starts a dev server if needed
 ```
 
 GitHub Actions runs these checks on pushes to `main` and pull requests. The browser runner uses system Chromium when available, or Playwright's browser installation otherwise.
+
+## Optional visual editing with Builder.io
+
+The Home page supports Builder's visual content editor, with registered functional
+Brayn blocks and a native layout fallback. Follow [the connection guide](docs/BUILDER.md)
+to create a Space, configure its public API key and edit your first Page.
