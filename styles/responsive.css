@@ -1,0 +1,749 @@
+@media (min-width: 1550px) {
+  main {
+    padding: var(--space-11);
+  }
+  .day {
+    min-height: 112px;
+  }
+  .calendar-event {
+    font-size: var(--text-10);
+  }
+  .focus-art {
+    height: 155px;
+  }
+  .focus-card {
+    padding-top: var(--space-8);
+  }
+  .horizon-item {
+    padding: var(--space-5) 0;
+  }
+  .project-card {
+    padding: var(--space-6);
+  }
+  .project-card h3 {
+    font-size: var(--text-16);
+  }
+  .calendar-date h3 {
+    font-size: var(--text-18);
+  }
+  .view-switch button {
+    font-size: var(--text-11);
+  }
+  .calendar-event span:not(.deadline-marker) {
+    white-space: normal;
+  }
+}
+@media (max-width: 1250px) {
+  :root {
+    --sidebar-width: 12.5rem;
+  }
+  .sidebar {
+    width: var(--sidebar-width);
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+  .main-shell {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
+  main {
+    padding: var(--space-7) var(--space-6) 0;
+  }
+  .topbar {
+    padding: 0 var(--space-6);
+  }
+  .home-grid {
+    grid-template-columns: minmax(0, 1fr) 222px;
+    gap: var(--space-4);
+  }
+  .overview-card {
+    padding: var(--space-5) var(--space-4);
+    gap: var(--space-3);
+  }
+  .overview-card small {
+    display: block;
+    margin: var(--space-1) 0 0;
+  }
+  .calendar-toolbar {
+    flex-wrap: wrap;
+    padding-top: var(--space-1);
+  }
+  .calendar-panel > .section-heading {
+    padding: var(--space-5) var(--space-4);
+  }
+  .calendar-date {
+    gap: var(--space-1);
+  }
+  .calendar-date h3 {
+    font-size: var(--text-14);
+  }
+  .view-switch button {
+    padding: var(--space-1) var(--space-2);
+  }
+  .calendar-footer {
+    flex-wrap: wrap;
+  }
+  .legend {
+    gap: var(--space-2);
+  }
+  .day {
+    min-height: 89px;
+  }
+  .focus-card {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+  .focus-card h2 {
+    font-size: var(--text-28);
+  }
+  .focus-bottom {
+    margin-left: calc(-1 * var(--space-5));
+    margin-right: calc(-1 * var(--space-5));
+  }
+  .focus-art {
+    margin-left: calc(-1 * var(--space-5));
+    margin-right: calc(-1 * var(--space-5));
+    height: 137px;
+  }
+  .plan-button .preview-mini {
+    display: none;
+  }
+  .calendar-event {
+    font-size: var(--text-8);
+  }
+  .deadline-marker {
+    display: none;
+  }
+  .horizon-item strong {
+    font-size: var(--text-9);
+  }
+  .project-card h3 {
+    font-size: var(--text-12);
+  }
+  .page-heading h1 {
+    font-size: var(--text-28);
+  }
+  .calendar-date .today-button {
+    margin-left: var(--space-1);
+  }
+}
+@media (max-width: 1050px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+  .right-rail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .focus-art {
+    position: absolute;
+    width: 170px;
+    right: 5px;
+    bottom: 30px;
+    height: 145px;
+  }
+  .focus-card {
+    position: relative;
+    min-height: 220px;
+  }
+  .focus-card p {
+    max-width: 150px;
+  }
+  .focus-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 19px;
+    right: 19px;
+  }
+  .focus-art .arch {
+    left: 60px;
+  }
+  .focus-art .arch.front {
+    left: 43px;
+  }
+  .focus-art .sun {
+    left: 29px;
+  }
+  .calendar-toolbar {
+    flex-wrap: nowrap;
+  }
+  .calendar-event {
+    font-size: var(--text-9);
+  }
+  .day {
+    min-height: 95px;
+  }
+  .up-next {
+    padding-top: var(--space-5);
+  }
+  .horizon-item {
+    padding: var(--space-2) 0;
+  }
+  .horizon-item strong {
+    font-size: var(--text-10);
+  }
+  .project-grid {
+    gap: var(--space-3);
+  }
+  .project-card {
+    padding: var(--space-4);
+  }
+  .project-card-top .status {
+    font-size: var(--text-8);
+  }
+  .output-grid {
+    grid-template-columns: 1fr;
+  }
+  .template-title {
+    font-size: var(--text-40);
+  }
+  .template-option .template-title {
+    font-size: var(--text-20);
+  }
+  .integration-cards {
+    grid-template-columns: 1fr;
+  }
+  .integration-cards > .panel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .integration-cards h3 {
+    margin-top: 0;
+  }
+  .integration-cards p {
+    width: 100%;
+    margin: 0;
+  }
+  .project-card h3 {
+    white-space: normal;
+    min-height: 30px;
+  }
+  .template-grid {
+    gap: var(--space-3);
+  }
+  .detail-panel {
+    padding: var(--space-6);
+  }
+  .live-template .template {
+    width: 250px;
+  }
+  .template-bottom {
+    font-size: var(--text-5);
+  }
+  .overview-card {
+    padding: var(--space-4) var(--space-3);
+  }
+  .overview-card > div > span {
+    font-size: var(--text-10);
+  }
+  .metric-icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+@media (max-width: 800px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 14.25rem;
+    transition: transform 0.2s;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-scrim {
+    position: fixed;
+    inset: 0;
+    background: var(--color-overlay);
+    z-index: 20;
+  }
+  .main-shell {
+    margin-left: 0;
+    width: 100%;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+  .topbar {
+    height: 62px;
+    padding: 0 var(--space-5);
+  }
+  .topbar-actions {
+    gap: var(--space-4);
+  }
+  .breadcrumb {
+    gap: var(--space-2);
+  }
+  .demo-pill {
+    font-size: var(--text-8);
+    padding: var(--space-1) var(--space-2);
+  }
+  .page-heading {
+    gap: var(--space-4);
+  }
+  .page-heading h1 {
+    font-size: var(--text-28);
+  }
+  .page-heading p {
+    font-size: var(--text-11);
+  }
+  main {
+    padding: var(--space-7) var(--space-5) 0;
+  }
+  .eyebrow {
+    font-size: var(--text-8);
+  }
+  .app-footer {
+    font-size: var(--text-8);
+  }
+  .overview {
+    gap: var(--space-3);
+  }
+  .overview-card {
+    padding: var(--space-4) var(--space-3);
+  }
+  .overview-card small {
+    font-size: var(--text-8);
+  }
+  .overview-card > div > span {
+    font-size: var(--text-9);
+  }
+  .overview-card strong {
+    font-size: var(--text-24);
+  }
+  .template-option .template-title {
+    font-size: var(--text-24);
+  }
+  .client-info > span:last-child {
+    margin-left: 0;
+  }
+  .toast {
+    left: 50%;
+  }
+  .project-grid.full {
+    margin-bottom: var(--space-25);
+  }
+}
+@media (max-width: 560px) {
+  main {
+    padding: var(--space-6) var(--space-4) 0;
+  }
+  .page-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-6);
+    gap: var(--space-4);
+  }
+  .page-heading h1 {
+    font-size: var(--text-28);
+    letter-spacing: var(--tracking-tight);
+  }
+  .page-heading > .primary,
+  .page-heading > .secondary {
+    font-size: var(--text-11);
+    padding: var(--space-2) var(--space-3);
+    min-height: 34px;
+  }
+  .page-heading p {
+    max-width: 340px;
+  }
+  .overview {
+    gap: var(--space-2);
+    margin-bottom: var(--space-5);
+  }
+  .overview-card {
+    display: block;
+    padding: var(--space-3) var(--space-3);
+  }
+  .metric-icon {
+    width: 29px;
+    height: 29px;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-3);
+  }
+  .metric-icon svg {
+    width: 16px;
+  }
+  .overview-card > div > span {
+    font-size: var(--text-8);
+    display: block;
+    min-height: 22px;
+    line-height: var(--leading-normal);
+  }
+  .overview-card strong {
+    font-size: var(--text-24);
+    margin-top: var(--space-2);
+  }
+  .overview-card small {
+    display: none;
+  }
+  .right-rail {
+    grid-template-columns: 1fr;
+  }
+  .focus-card {
+    min-height: 215px;
+  }
+  .focus-art {
+    right: 18px;
+    width: 200px;
+    bottom: 28px;
+  }
+  .focus-card h2 {
+    font-size: var(--text-28);
+  }
+  .calendar-panel > .section-heading {
+    padding: var(--space-4) var(--space-3);
+  }
+  .section-heading h2 {
+    font-size: var(--text-16);
+  }
+  .section-heading p {
+    font-size: var(--text-10);
+  }
+  .plan-button {
+    font-size: var(--text-9);
+    padding: var(--space-2);
+  }
+  .calendar-toolbar {
+    padding: var(--space-1) var(--space-3) var(--space-4);
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .view-switch {
+    margin-left: auto;
+  }
+  .calendar-date h3 {
+    font-size: var(--text-14);
+  }
+  .day {
+    padding: var(--space-1) var(--space-1);
+    min-height: 80px;
+  }
+  .day-number {
+    font-size: var(--text-9);
+    margin-left: 0;
+    width: 19px;
+    height: 19px;
+  }
+  .calendar-event {
+    font-size: var(--text-8);
+    line-height: var(--leading-tight);
+    padding: var(--space-1) var(--space-1);
+  }
+  .calendar-event i {
+    display: none;
+  }
+  .calendar-event span:not(.deadline-marker) {
+    white-space: normal;
+  }
+  .weekdays span {
+    font-size: var(--text-8);
+    padding: var(--space-3) 0;
+  }
+  .calendar-footer {
+    padding: var(--space-3);
+  }
+  .legend span {
+    font-size: var(--text-8);
+  }
+  .legend {
+    gap: var(--space-2);
+  }
+  .project-grid,
+  .project-grid.full {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    padding: var(--space-5);
+  }
+  .project-card h3 {
+    min-height: auto;
+    font-size: var(--text-14);
+    white-space: nowrap;
+  }
+  .project-card-top .status {
+    font-size: var(--text-9);
+  }
+  .project-card-footer {
+    font-size: var(--text-9);
+  }
+  .client-name {
+    font-size: var(--text-10);
+  }
+  .app-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-2);
+  }
+  .topbar {
+    padding: 0 var(--space-4);
+  }
+  .breadcrumb > span {
+    display: none;
+  }
+  .breadcrumb > svg {
+    display: none;
+  }
+  .topbar-actions {
+    gap: var(--space-3);
+  }
+  .demo-pill {
+    font-size: var(--text-8);
+  }
+  .template-grid {
+    grid-template-columns: 1fr;
+  }
+  .template-option .template {
+    aspect-ratio: 1.8;
+  }
+  .template-option .template-title {
+    font-size: var(--text-32);
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .live-template {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-4);
+  }
+  .live-template .template {
+    width: 100%;
+  }
+  .live-template .template-title {
+    font-size: var(--text-32);
+  }
+  .modal-backdrop {
+    padding: var(--space-4);
+  }
+  .modal {
+    padding: var(--space-6) var(--space-5);
+  }
+  .modal h2 {
+    font-size: var(--text-20);
+  }
+  .modal .form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+  .list-toolbar {
+    flex-wrap: wrap;
+  }
+  .search {
+    width: 100%;
+  }
+  .project-meta {
+    gap: var(--space-3);
+    font-size: var(--text-10);
+  }
+  .project-tabs {
+    gap: var(--space-5);
+  }
+  .project-tabs button {
+    font-size: var(--text-10);
+  }
+  .detail-panel {
+    padding: var(--space-5) var(--space-4);
+  }
+  .task-row strong {
+    font-size: var(--text-12);
+  }
+  .task-row small {
+    font-size: var(--text-9);
+  }
+  .client-info {
+    gap: var(--space-3);
+    padding: var(--space-5);
+  }
+  .meeting-row {
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .meeting-row > .secondary {
+    margin-left: var(--space-16);
+    font-size: var(--text-10);
+  }
+  .meeting-row > div:nth-child(2) > strong {
+    font-size: var(--text-11);
+  }
+  .meeting-row small {
+    font-size: var(--text-8);
+  }
+  .notice {
+    font-size: var(--text-10);
+  }
+  .activity-row {
+    gap: var(--space-3);
+  }
+  .activity-row .metric-icon {
+    margin-bottom: 0;
+  }
+  .activity-row strong {
+    font-size: var(--text-11);
+  }
+  .activity-row small {
+    font-size: var(--text-9);
+  }
+  .year-calendar {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+  .agenda {
+    padding: var(--space-3);
+  }
+  .agenda-event {
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .agenda-date {
+    min-width: 77px;
+    font-size: var(--text-8);
+  }
+  .agenda-event strong {
+    font-size: var(--text-9);
+  }
+  .agenda-event > span:last-of-type {
+    display: none;
+  }
+  .week .day {
+    min-height: 320px;
+  }
+  .week .calendar-event {
+    font-size: var(--text-8);
+    padding: var(--space-2) var(--space-1);
+  }
+  .week .calendar-event > small {
+    font-size: var(--text-6);
+  }
+  .presentation-preview {
+    padding: var(--space-4);
+  }
+  .strategy-preview {
+    padding: var(--space-6);
+  }
+  .strategy-preview h2 {
+    font-size: var(--text-32);
+  }
+  .output-grid .primary {
+    font-size: var(--text-10);
+  }
+  .button-row {
+    flex-wrap: wrap;
+  }
+  .style-summary {
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .style-summary .text-link {
+    margin-left: var(--space-9);
+  }
+  .toast {
+    min-width: 260px;
+    font-size: var(--text-11);
+    padding: var(--space-3) var(--space-4);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* Keep navigation reachable on smaller desktop windows. */
+.sidebar {
+  overflow-y: auto;
+}
+.sidebar-projects {
+  flex-shrink: 0;
+}
+.sidebar-bottom {
+  flex-shrink: 0;
+}
+@media (max-height: 850px) {
+  .creative-note {
+    display: none;
+  }
+  .sidebar-bottom {
+    padding-top: var(--space-4);
+  }
+  .sidebar {
+    padding-top: var(--space-6);
+  }
+  .brand {
+    margin-bottom: var(--space-6);
+  }
+  .workspace-label {
+    margin-bottom: var(--space-6);
+  }
+  .project-label {
+    margin-top: var(--space-6);
+  }
+}
+/* Secondary information remains readable against the light surfaces. */
+.page-heading p,
+.section-heading p,
+.overview-card > div > span,
+.section-description {
+  color: var(--color-text-secondary);
+}
+.nav-item,
+.sidebar-project {
+  color: var(--color-neutral-text);
+}
+.nav-item.active {
+  color: var(--color-accent-hover);
+}
+.horizon-item small,
+.task-row small,
+.project-card-footer,
+.activity-row small,
+.meeting-row small {
+  color: var(--color-text-secondary);
+}
+.calendar-event.purple {
+  color: var(--color-accent-text);
+}
+.calendar-event.orange {
+  color: var(--color-warning-text);
+}
+.calendar-event.green {
+  color: var(--color-success-text);
+}
+.calendar-event.neutral {
+  color: var(--color-neutral-text);
+}
+.legend span,
+.day-number,
+.view-switch button,
+.calendar-footer select {
+  color: var(--color-text-secondary);
+}
+.day.outside .day-number {
+  color: var(--color-neutral-muted);
+}
+.field,
+.client-info,
+.connected-services p,
+.settings-hours p,
+.live-template p,
+.template-option p,
+.list-toolbar > span,
+.preview-description {
+  color: var(--color-text-secondary);
+}
+@media (max-width: 800px) {
+  .sidebar {
+    visibility: hidden;
+  }
+  .sidebar.open {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 560px) {
+  .focus-art {display:none;}
+}

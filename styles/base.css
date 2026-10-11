@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-14);
+  -webkit-font-smoothing: antialiased;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    box-shadow 0.15s,
+    transform 0.15s;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-focus);
+  outline-offset: 3px;
+}
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: var(--text-32);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+h1 > span {
+  color: var(--color-accent);
+}
+h2 {
+  font-size: var(--text-18);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+h3 {
+  font-size: var(--text-16);
+  font-weight: var(--weight-semibold);
+}
+p {
+  line-height: var(--leading-relaxed);
+}
+svg {
+  flex-shrink: 0;
+}
+button:hover {
+  color: var(--color-accent);
+}
