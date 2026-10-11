@@ -683,7 +683,7 @@
     margin-top: var(--space-6);
   }
 }
-/* Secondary information remains readable against the light surfaces. */
+/* Secondary information remains readable against the theme surfaces. */
 .page-heading p,
 .section-heading p,
 .overview-card > div > span,
@@ -695,7 +695,7 @@
   color: var(--color-neutral-text);
 }
 .nav-item.active {
-  color: var(--color-accent-hover);
+  color: var(--color-text);
 }
 .horizon-item small,
 .task-row small,

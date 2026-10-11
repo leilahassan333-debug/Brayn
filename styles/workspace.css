@@ -361,9 +361,9 @@ main {
   color: var(--color-on-accent);
 }
 .secondary {
-  border: var(--border-width) solid var(--color-avatar);
-  background: var(--color-surface);
-  color: var(--color-text-secondary);
+  border: var(--border-width) solid var(--color-border);
+  background: var(--color-surface-subtle);
+  color: var(--color-text);
 }
 .secondary:hover {
   background: var(--color-surface-subtle);
@@ -1841,3 +1841,26 @@ main {
 
 .workspace-label {font-size:var(--text-11);}
 .workspace-label > div {min-width:0;flex:1;white-space:nowrap;}
+
+/* Dark workspace controls share the same semantic theme as page surfaces. */
+.primary:active,
+.secondary:active {
+  transform: translateY(1px);
+}
+.secondary:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+.nav-item.active {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+.field input,
+.field select,
+.field textarea {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+.modal {
+  border: var(--border-width) solid var(--color-border-strong);
+}
