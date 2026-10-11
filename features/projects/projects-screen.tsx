@@ -24,9 +24,9 @@ export function ProjectsScreen({
   return (
     <>
       <PageHeading
-        eyebrow="YOUR CREATIVE CORNER"
-        title="Ideas, becoming real."
-        description="Projects keeps each client’s work in one place. Create a project, set its deadline and priority, then open it to manage tasks, save notes and capture ideas. Search your projects when you need to find a particular piece of work."
+        eyebrow="ORGANIZE YOUR PROJECTS"
+        title="Manage every project."
+        description="Create a project for each client engagement. Set the deadline and priority, assign tasks and keep notes in one place. Search your projects and open the work that needs your attention."
         action={
           <Button variant="primary" onClick={createProject}>
             <Plus size={17} />
@@ -54,7 +54,7 @@ export function ProjectsScreen({
       {!matchingProjects.length && (
         <Empty
           title="No projects found"
-          description="Try a different search, or start a new chapter."
+          description="Change your search or create a new project."
         />
       )}
     </>

@@ -16,9 +16,9 @@ export function ActivityScreen({
   return (
     <>
       <PageHeading
-        eyebrow="SMALL STEPS, REAL PROGRESS"
-        title="The story so far."
-        description="Activity is your workspace history. Review recent project updates, task completions and saved notes to see what has changed. Use it to pick up where you left off, check approaching deadlines and return to the related project."
+        eyebrow="TRACK YOUR PROGRESS"
+        title="Review workspace activity."
+        description="Review project updates, completed tasks and saved notes. Check what changed, identify approaching deadlines and open the related project to follow up."
       />
       <Panel className="detail-panel">
         <h2>Workspace activity</h2>

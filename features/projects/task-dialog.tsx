@@ -18,7 +18,7 @@ export function TaskDialog({
 >) {
   return (
     <Modal
-      title={editTask ? "Edit task" : "One more step forward"}
+      title={editTask ? "Edit task" : "Add task"}
       close={close}
     >
       {formError && (
@@ -38,7 +38,7 @@ export function TaskDialog({
             required
             maxLength={150}
             defaultValue={editTask?.title}
-            placeholder="What needs doing?"
+            placeholder="Name the action or deliverable"
             autoFocus
           />
         </Field>

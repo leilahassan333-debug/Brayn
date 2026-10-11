@@ -42,8 +42,8 @@ export function TaskList({
       ))}
       {!tasks.length && (
         <Empty
-          title="A fresh page"
-          description="Add your first task and give this idea a place to start."
+          title="No tasks yet"
+          description="Add a task with a clear action, deadline and priority."
         />
       )}
     </>

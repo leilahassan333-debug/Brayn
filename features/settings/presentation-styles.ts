@@ -2,19 +2,19 @@
 export const styles = [
   {
     name: "Editorial",
-    description: "Thoughtful type. Room to breathe.",
+    description: "Serif typography with a spacious editorial layout.",
     font: "Georgia",
     theme: "editorial",
   },
   {
     name: "Minimal",
-    description: "A quiet frame for bold ideas.",
+    description: "Clean typography and a restrained layout.",
     font: "Arial",
     theme: "minimal",
   },
   {
     name: "Expressive",
-    description: "A little energy. A lot of personality.",
+    description: "Bold layouts with prominent color and type.",
     font: "Trebuchet MS",
     theme: "expressive",
   },

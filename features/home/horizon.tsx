@@ -11,7 +11,7 @@ export function Horizon({
   return (
     <Panel className="up-next">
       <div className="section-heading">
-        <h2>On your horizon</h2>
+        <h2>Upcoming tasks</h2>
         <span className="tiny-label">TASKS</span>
       </div>
       {due.map((t) => (
@@ -37,7 +37,7 @@ export function Horizon({
         </button>
       ))}
       {!due.length && (
-        <p className="empty">All caught up. Make room for something good.</p>
+        <p className="empty">No open tasks. Create a task in a project to plan your next action.</p>
       )}
       <Button variant="link" onClick={() => go("Projects")}>
         See all projects <ArrowRight size={14} />

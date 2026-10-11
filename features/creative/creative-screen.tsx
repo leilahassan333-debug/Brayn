@@ -29,18 +29,18 @@ export function CreativeScreen({
       <PageHeading
         eyebrow={
           page === "Strategy"
-            ? "THE THINKING BEHIND THE WORK"
-            : "GIVE YOUR WORK ITS MOMENT"
+            ? "DEFINE YOUR BRAND DIRECTION"
+            : "PRESENT YOUR COMPLETED WORK"
         }
         title={
           page === "Strategy"
-            ? "Start with a little direction."
-            : "Good work. Beautifully presented."
+            ? "Build a clear brand strategy."
+            : "Present your work with confidence."
         }
         description={
           page === "Strategy"
-            ? "Strategy is for defining the thinking behind a brand before you start designing: its audience, positioning, brand pillars and tone of voice. Choose a project to explore the planned workflow and the information it needs. This is a preview; AI analysis and strategy generation are not connected yet."
-            : "Brief is for presenting finished creative work to a client. Choose a project and preview how your saved template, font and colors could frame the presentation. It currently shows sample content; artwork uploads, generated presentations and PowerPoint or PDF exports are not connected yet."
+            ? "Define the audience, positioning, brand pillars and tone of voice before you design. Select a project and review the information required for the planned strategy workflow. This is a preview; AI analysis and strategy generation are not connected yet."
+            : "Prepare a client presentation of your completed work. Select a project and preview your saved template, font and colors. The preview uses sample content; artwork uploads, generated presentations and PowerPoint or PDF exports are not connected yet."
         }
         action={
           <span className="integration-badge">
@@ -64,8 +64,8 @@ export function CreativeScreen({
           </Field>
           <h2>
             {page === "Strategy"
-              ? "A clearer starting point"
-              : "Your work stays yours"}
+              ? "Define the strategy inputs"
+              : "Preserve your artwork"}
           </h2>
           <p className="section-description">
             {page === "Strategy"
@@ -146,10 +146,10 @@ export function CreativeScreen({
             <div className="strategy-preview">
               <span className="tiny-label">THE BIG PICTURE</span>
               <h2>
-                Every good brand
+                Define the brand.
                 <br />
-                starts with a<br />
-                <em>good question.</em>
+                Ask the<br />
+                <em>right questions.</em>
               </h2>
               <span className="strategy-star">✳</span>
               <p>What makes this brand matter?</p>

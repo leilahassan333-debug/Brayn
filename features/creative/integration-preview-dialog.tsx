@@ -13,12 +13,12 @@ export function IntegrationPreviewDialog({
         <Modal
           title={
             {
-              plan: "A calmer week, by design",
+              plan: "Preview weekly planning",
               strategy: "From brief to brand direction",
-              brief: "A presentation worth sharing",
-              booking: "Make room for a conversation",
-              email: "The right words, at the right time",
-              personal: "Room to recharge",
+              brief: "Preview presentation creation",
+              booking: "Preview meeting booking",
+              email: "Preview scheduled email",
+              personal: "Review personal commitment",
             }[modal] ?? "Integration preview"
           }
           close={close}
@@ -55,7 +55,7 @@ export function IntegrationPreviewDialog({
           </div>
           <div className="modal-actions">
             <Button variant="primary" onClick={close}>
-              Got it
+              Close preview
               <Check size={16} />
             </Button>
           </div>

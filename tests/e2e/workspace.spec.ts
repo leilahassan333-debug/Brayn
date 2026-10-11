@@ -105,7 +105,7 @@ test("presentation preferences use actual templates, customize and persist", asy
     .filter({ hasText: "Expressive" })
     .click();
   await page
-    .getByLabel("What tone feels right?")
+    .getByLabel("Presentation tone")
     .selectOption("Playful & expressive");
   await page
     .getByLabel("Presentation font", { exact: true })
@@ -145,7 +145,7 @@ test("desktop and mobile render without horizontal overflow or browser errors", 
   await page.setViewportSize({ width: 1440, height: 1100 });
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: "Your work, in a good place." }),
+    page.getByRole("heading", { name: "Manage your work." }),
   ).toBeVisible();
   await page.screenshot({ path: "test-results/desktop.png", fullPage: true });
   expect(
@@ -157,7 +157,7 @@ test("desktop and mobile render without horizontal overflow or browser errors", 
   await expect(page.getByRole("dialog")).toContainText(
     "review every suggested change",
   );
-  await page.getByRole("button", { name: "Got it" }).click();
+  await page.getByRole("button", { name: "Close preview" }).click();
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: "test-results/mobile.png", fullPage: true });
   expect(
@@ -171,7 +171,7 @@ test("desktop and mobile render without horizontal overflow or browser errors", 
     .first()
     .click();
   await expect(
-    page.getByRole("heading", { name: "Let’s find a moment." }),
+    page.getByRole("heading", { name: "Review client meetings." }),
   ).toBeVisible();
   await expect(
     page.getByText("Calendar, email acceptance and Zoom are not connected.", {

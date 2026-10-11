@@ -96,7 +96,7 @@ export function Calendar({
           ))
         ) : (
           <Empty
-            title="A little breathing room"
+            title="No scheduled events"
             description="No events in this month. Navigate to October 2026 to explore the demo."
           />
         )}

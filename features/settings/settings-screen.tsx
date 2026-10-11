@@ -18,9 +18,9 @@ export function SettingsScreen({
   return (
     <>
       <PageHeading
-        eyebrow="MAKE YOURSELF AT HOME"
-        title="A workspace that feels like you."
-        description="Settings lets you choose your presentation template, font, accent color, tone and working hours. Save your preferences to reuse them in the Brief preview. Use this page to personalize your defaults and check which external services still need to be connected."
+        eyebrow="SET YOUR DEFAULTS"
+        title="Configure your workspace."
+        description="Set your presentation template, font, accent color, tone and working hours. Save your defaults to apply them to the Brief preview. Review connection status before using external services."
       />
       <form
         onSubmit={(e) => {
@@ -33,13 +33,13 @@ export function SettingsScreen({
             <div>
               <h2>Your presentation style</h2>
               <p>
-                Choose a real layout template. Artwork will always stay intact.
+                Choose the layout for your Brief preview. Artwork uploads are not available yet.
               </p>
             </div>
             <span className="tiny-label">BRIEF DEFAULTS</span>
           </div>
           <div className="form-grid">
-            <Field label="What kind of creative work do you do?">
+            <Field label="Creative discipline">
               <select
                 value={preferences.work}
                 onChange={(e) =>
@@ -60,7 +60,7 @@ export function SettingsScreen({
                 ))}
               </select>
             </Field>
-            <Field label="What tone feels right?">
+            <Field label="Presentation tone">
               <select
                 value={preferences.tone}
                 onChange={(e) =>
@@ -138,7 +138,7 @@ export function SettingsScreen({
           </div>
           <div className="live-template">
             <div>
-              <h3>Your customized preview</h3>
+              <h3>Presentation preview</h3>
               <p>Layout, typography and accent color update here.</p>
             </div>
             <Template

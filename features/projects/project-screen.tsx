@@ -46,7 +46,7 @@ export function ProjectScreen({
         eyebrow={project.client.toUpperCase()}
         title={project.name}
         description={project.description}
-        guidance="Use this project page to turn the brief into actionable tasks, track progress and keep your notes and ideas together. Switch tabs below to focus on a different part of the work, or edit the project to update its details."
+        guidance="Turn the brief into tasks, track completion and record decisions. Switch tabs to manage tasks, notes and private messages. Select Edit project to update the deadline, priority or project details."
         action={
           <Button
             variant="secondary"
@@ -92,7 +92,7 @@ export function ProjectScreen({
           <>
             <div className="section-heading">
               <div>
-                <h2>One step at a time</h2>
+                <h2>Project tasks</h2>
                 <p>Break this project into tasks with due dates and priorities. Add or edit a task, then tick it off when finished to update your project progress.</p>
               </div>
               <Button
@@ -141,7 +141,7 @@ export function ProjectScreen({
         )}
         {projectTab === "Conversation" && (
           <>
-            <h2>A conversation with your ideas</h2>
+            <h2>Private project messages</h2>
             <p className="section-description">
               Capture quick thoughts, questions and decisions as separate messages. Use this as a running record alongside your longer notes. These messages stay in your workspace and are not sent to clients.
             </p>
@@ -170,10 +170,10 @@ export function ProjectScreen({
                   form.reset();
               }}
             >
-              <Field label="A thought worth keeping">
+              <Field label="Message">
                 <textarea
                   name="message"
-                  placeholder="Capture a thought, a question, a next step…"
+                  placeholder="Record a decision, question or next action."
                   required
                   rows={3}
                 />
@@ -187,7 +187,7 @@ export function ProjectScreen({
         {projectTab === "Files & outputs" && (
           <>
             <Empty
-              title="A home for the finished work"
+              title="Project files and outputs"
               description="Private file uploads and saved creative outputs arrive in Phases 2 and 3. No files have been uploaded."
             />
             <div className="button-row">

@@ -12,10 +12,10 @@ export function ProjectOverview({
       <div className="section-heading">
         <div>
           <h2>
-            Good things in progress{" "}
+            Your projects{" "}
             <span className="muted-count">{data.projects.length}</span>
           </h2>
-          <p>The ideas you’re bringing to life.</p>
+          <p>Review project status and open the work you need.</p>
         </div>
         <Button variant="link" onClick={() => go("Projects")}>
           All projects <ArrowRight size={15} />

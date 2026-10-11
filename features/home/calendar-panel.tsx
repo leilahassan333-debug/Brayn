@@ -34,7 +34,7 @@ export function CalendarPanel({
       <div className="section-heading">
         <div>
           <h2>Your calendar</h2>
-          <p>A little perspective on what’s ahead.</p>
+          <p>Track deadlines, tasks and sample meetings.</p>
         </div>
         <button className="plan-button" onClick={() => setModal("plan")}>
           <Sparkles size={15} />

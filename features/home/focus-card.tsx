@@ -3,17 +3,17 @@ export function FocusCard() {
   return (
     <section className="focus-card">
       <div className="focus-kicker">
-        <Leaf size={15} /> A MOMENT OF FOCUS
+        <Leaf size={15} /> SET YOUR PRIORITY
       </div>
       <h2>
-        Less busy.
+        Choose your priority.
         <br />
-        More meaningful.
+        Take action.
       </h2>
       <p>
-        You don’t have to do it all today.
+        Identify the task that matters most.
         <br />
-        Just the next right thing.
+        Start there.
       </p>
       <div className="focus-art">
         <span className="arch back" />
@@ -21,7 +21,7 @@ export function FocusCard() {
         <span className="sun" />
         <span className="art-line" />
       </div>
-      <div className="focus-bottom">Your ideas deserve breathing room.</div>
+      <div className="focus-bottom">Protect time for focused work.</div>
     </section>
   );
 }

@@ -17,11 +17,11 @@ export function ProjectDialog({
 >) {
   return (
     <Modal
-      title={editProject ? "Edit project" : "Start a new chapter"}
+      title={editProject ? "Edit project" : "Create project"}
       close={close}
     >
       <p className="section-description">
-        A space for your client, your ideas, and everything in between.
+        Set the client, scope, deadline and priority. Add tasks and notes after creating the project.
       </p>
       {formError && (
         <div className="error-banner" role="alert">
@@ -51,7 +51,7 @@ export function ProjectDialog({
               required
               maxLength={80}
               defaultValue={editProject?.client}
-              placeholder="Who’s it for?"
+              placeholder="Client or company name"
             />
           </Field>
           <Field label="Client email">
@@ -68,7 +68,7 @@ export function ProjectDialog({
             name="description"
             maxLength={1000}
             defaultValue={editProject?.description}
-            placeholder="What are you bringing to life?"
+            placeholder="Describe the scope and expected deliverables."
             rows={3}
           />
         </Field>

@@ -30,13 +30,13 @@ export function HomeScreen(props: HomeProps) {
   return (
     <>
       <PageHeading
-        eyebrow="A LITTLE CLARITY, A LOT OF POSSIBILITY"
+        eyebrow="TAKE CONTROL OF YOUR WORK"
         title={
           <>
-            Your work, in a good place<span>.</span>
+            Manage your work<span>.</span>
           </>
         }
-        description="Home is your daily overview of projects, tasks, deadlines and sample meetings. Use the calendar to plan your day, switch between year, month, week and agenda views, or open a project to continue working."
+        description="Track projects, tasks and deadlines from one dashboard. Review sample meetings, switch calendar views and open a project to take the next action."
         action={
           <Button onClick={props.createProject}>
             <Plus size={17} />

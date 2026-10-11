@@ -101,11 +101,11 @@ export function Sidebar({
       <div className="sidebar-bottom">
         <div className="creative-note">
           <div className="note-doodle">✺</div>
-          <strong>Good work takes space.</strong>
+          <strong>Own your next move.</strong>
           <p>
-            Make a little room for
+            Set your priorities.
             <br />
-            your next big idea.
+            Move the work forward.
           </p>
         </div>
         <button

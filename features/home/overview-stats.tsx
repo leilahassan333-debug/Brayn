@@ -14,20 +14,20 @@ export function OverviewStats({
       <StatCard
         title="Active projects"
         value={overview.activeProjects}
-        description="A few good things in motion"
+        description="Projects not yet completed"
         icon={<FolderClosed size={21} />}
       />
       <StatCard
-        title="Tasks to move forward"
+        title="Open tasks"
         value={overview.openTasks}
-        description="One step at a time"
+        description="Tasks awaiting completion"
         icon={<CheckCircle2 size={21} />}
         tone="orange"
       />
       <StatCard
         title="Upcoming meetings"
         value={overview.upcomingMeetings}
-        description="Good conversations ahead"
+        description="Sample meetings on the calendar"
         icon={<Video size={21} />}
         tone="green"
       />
