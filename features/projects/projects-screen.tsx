@@ -26,7 +26,7 @@ export function ProjectsScreen({
       <PageHeading
         eyebrow="YOUR CREATIVE CORNER"
         title="Ideas, becoming real."
-        description="Every project has a story. Keep yours together."
+        description="Projects keeps each client’s work in one place. Create a project, set its deadline and priority, then open it to manage tasks, save notes and capture ideas. Search your projects when you need to find a particular piece of work."
         action={
           <Button variant="primary" onClick={createProject}>
             <Plus size={17} />

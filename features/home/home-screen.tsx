@@ -36,7 +36,7 @@ export function HomeScreen(props: HomeProps) {
             Your work, in a good place<span>.</span>
           </>
         }
-        description="Make space for the work you love. We’ll keep the details together."
+        description="Home is your daily overview of projects, tasks, deadlines and sample meetings. Use the calendar to plan your day, switch between year, month, week and agenda views, or open a project to continue working."
         action={
           <Button onClick={props.createProject}>
             <Plus size={17} />

@@ -39,8 +39,8 @@ export function CreativeScreen({
         }
         description={
           page === "Strategy"
-            ? "Strategy shapes the brand direction. Brief presents your completed creative work."
-            : "Brief is your client presentation of completed work. Strategy is the thinking behind it."
+            ? "Strategy is for defining the thinking behind a brand before you start designing: its audience, positioning, brand pillars and tone of voice. Choose a project to explore the planned workflow and the information it needs. This is a preview; AI analysis and strategy generation are not connected yet."
+            : "Brief is for presenting finished creative work to a client. Choose a project and preview how your saved template, font and colors could frame the presentation. It currently shows sample content; artwork uploads, generated presentations and PowerPoint or PDF exports are not connected yet."
         }
         action={
           <span className="integration-badge">

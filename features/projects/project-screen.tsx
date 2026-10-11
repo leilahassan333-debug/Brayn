@@ -46,6 +46,7 @@ export function ProjectScreen({
         eyebrow={project.client.toUpperCase()}
         title={project.name}
         description={project.description}
+        guidance="Use this project page to turn the brief into actionable tasks, track progress and keep your notes and ideas together. Switch tabs below to focus on a different part of the work, or edit the project to update its details."
         action={
           <Button
             variant="secondary"
@@ -92,7 +93,7 @@ export function ProjectScreen({
             <div className="section-heading">
               <div>
                 <h2>One step at a time</h2>
-                <p>Your tasks, your way. Add what matters to this project.</p>
+                <p>Break this project into tasks with due dates and priorities. Add or edit a task, then tick it off when finished to update your project progress.</p>
               </div>
               <Button
                 variant="primary"
@@ -128,7 +129,7 @@ export function ProjectScreen({
           >
             <h2>Project notes</h2>
             <p className="section-description">
-              Keep discoveries and meeting notes close to the work.
+              Keep the client brief, research, feedback and meeting notes together. Edit your private notes here and choose Save notes to keep your changes.
             </p>
             <Field label="Private notes">
               <textarea name="notes" defaultValue={project.notes} rows={8} />
@@ -142,7 +143,7 @@ export function ProjectScreen({
           <>
             <h2>A conversation with your ideas</h2>
             <p className="section-description">
-              Private project messages. Clients cannot see this space.
+              Capture quick thoughts, questions and decisions as separate messages. Use this as a running record alongside your longer notes. These messages stay in your workspace and are not sent to clients.
             </p>
             {project.conversation.map((text, i) => (
               <div className="conversation" key={i}>

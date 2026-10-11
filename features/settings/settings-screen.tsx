@@ -20,7 +20,7 @@ export function SettingsScreen({
       <PageHeading
         eyebrow="MAKE YOURSELF AT HOME"
         title="A workspace that feels like you."
-        description="Your preferences, carried into your next creative chapter."
+        description="Settings lets you choose your presentation template, font, accent color, tone and working hours. Save your preferences to reuse them in the Brief preview. Use this page to personalize your defaults and check which external services still need to be connected."
       />
       <form
         onSubmit={(e) => {

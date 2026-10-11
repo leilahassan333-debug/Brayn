@@ -21,7 +21,7 @@ export function MeetingsScreen({
       <PageHeading
         eyebrow="MAKE TIME FOR GOOD CONVERSATIONS"
         title="Let’s find a moment."
-        description="Client conversations, without opening up your private workspace."
+        description="Meetings is the place to review client conversations and explore how booking will work. View sample meetings and open their related projects to prepare. Availability, invitations, Zoom links and email reminders are previews; live scheduling is not connected yet."
         action={
           <Button variant="primary" onClick={() => setModal("booking")}>
             <Plus size={16} />
