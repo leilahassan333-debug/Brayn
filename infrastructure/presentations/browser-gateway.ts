@@ -122,8 +122,15 @@ export class BrowserPresentationGateway implements PresentationGateway {
       body: JSON.stringify(body),
     });
     if (!response.ok) {
-      const problem = await response.json();
-      throw new Error(problem.error ?? "Request failed.");
+      let message = `The server could not complete this request (HTTP ${response.status}). Please try again.`;
+      try {
+        const problem = await response.json();
+        if (typeof problem.error === "string" && problem.error.trim())
+          message = problem.error;
+      } catch {
+        /* Gateways can return a non-JSON error page. */
+      }
+      throw new Error(message);
     }
     return response;
   }

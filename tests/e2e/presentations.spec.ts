@@ -11,6 +11,11 @@ test.describe("private presentation studio", () => {
     page,
   }) => {
     let stored: Presentation | undefined;
+    let version = 0;
+    let uploadAttempts = 0;
+    let generationAttempts = 0;
+    const nextVersion = () =>
+      new Date(Date.now() + ++version * 1000).toISOString();
     await page.addInitScript(
       ({ owner }) =>
         localStorage.setItem(
@@ -47,12 +52,26 @@ test.describe("private presentation studio", () => {
             updated_at: new Date().toISOString(),
           };
         }
-        if (request.method() === "PATCH")
+        if (request.method() === "PATCH") {
+          const expected = new URL(request.url()).searchParams.get(
+            "updated_at",
+          );
+          if (expected !== `eq.${stored!.updated_at}`) {
+            await route.fulfill({
+              status: 406,
+              json: {
+                code: "PGRST116",
+                message: "No row matches the saved version",
+              },
+            });
+            return;
+          }
           stored = {
             ...stored!,
             ...request.postDataJSON(),
-            updated_at: new Date().toISOString(),
+            updated_at: nextVersion(),
           };
+        }
         await route.fulfill({
           json: request.method() === "GET" ? (stored ? [stored] : []) : stored,
         });
@@ -60,7 +79,17 @@ test.describe("private presentation studio", () => {
     );
     await page.route(
       "https://testproject.supabase.co/storage/v1/object/presentation-assets/**",
-      (route) => route.fulfill({ json: { Key: "uploaded" } }),
+      (route) =>
+        ++uploadAttempts === 1
+          ? route.fulfill({
+              status: 403,
+              json: {
+                statusCode: 403,
+                error: "Unauthorized",
+                message: "Upload blocked by storage access rules",
+              },
+            })
+          : route.fulfill({ json: { Key: "uploaded" } }),
     );
     await page.route(
       "https://testproject.supabase.co/storage/v1/object/sign/presentation-assets/**",
@@ -80,6 +109,13 @@ test.describe("private presentation studio", () => {
       (route) => route.fulfill({ body: png, contentType: "image/png" }),
     );
     await page.route("**/api/presentations/generate", async (route) => {
+      if (++generationAttempts === 1) {
+        await route.fulfill({
+          status: 502,
+          json: { error: "Generation temporarily unavailable" },
+        });
+        return;
+      }
       expect(route.request().headers().authorization).toBe(
         "Bearer test-access-token",
       );
@@ -115,6 +151,14 @@ test.describe("private presentation studio", () => {
     await page
       .getByLabel("Notes and instructions")
       .fill("A warm identity for a ceramics studio. Use the supplied artwork.");
+    await page.getByLabel("Upload photos or supporting files").setInputFiles({
+      name: "artwork.png",
+      mimeType: "image/png",
+      buffer: png,
+    });
+    await expect(page.getByRole("main").getByRole("alert")).toContainText(
+      "Upload blocked by storage access rules",
+    );
     await page
       .getByLabel("Upload photos or supporting files")
       .setInputFiles({
@@ -124,6 +168,18 @@ test.describe("private presentation studio", () => {
       });
     await expect(page.getByText("Files uploaded privately.")).toBeVisible();
     await page.getByRole("button", { name: /Minimal/ }).click();
+    await page
+      .getByRole("button", { name: "Generate presentation", exact: true })
+      .click();
+    await expect(page.getByRole("main").getByRole("alert")).toContainText(
+      "Generation temporarily unavailable",
+    );
+    await page
+      .getByRole("button", { name: "Save changes", exact: true })
+      .click();
+    await expect(
+      page.getByText("Presentation saved.", { exact: true }),
+    ).toBeVisible();
     await page
       .getByRole("button", { name: "Generate presentation", exact: true })
       .click();

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { presentationErrorMessage } from "./errors";
 import type { PresentationGateway } from "./gateway";
 import type { Presentation } from "@/domain/presentations/models";
 export function useStudio(gateway?: PresentationGateway) {
@@ -18,7 +19,7 @@ export function useStudio(gateway?: PresentationGateway) {
       await work();
       return true;
     } catch (problem) {
-      setError(problem instanceof Error ? problem.message : "Request failed.");
+      setError(presentationErrorMessage(problem));
       return false;
     } finally {
       setBusy(false);
@@ -43,7 +44,7 @@ export function useStudio(gateway?: PresentationGateway) {
         }
       })
       .catch((problem) => {
-        if (active) setError(problem.message);
+        if (active) setError(presentationErrorMessage(problem));
       });
     return () => {
       active = false;
@@ -123,6 +124,7 @@ export function useStudio(gateway?: PresentationGateway) {
       attempt(async () => {
         if (!selected) return;
         let p = await gateway!.save(selected);
+        replace(p);
         for (const file of files) {
           const asset = await gateway!.upload(p, file);
           p = await gateway!.save({ ...p, assets: [...p.assets, asset] });
@@ -134,6 +136,7 @@ export function useStudio(gateway?: PresentationGateway) {
       attempt(async () => {
         if (!selected) return;
         const saved = await gateway!.save(selected);
+        replace(saved);
         replace(await gateway!.generate(saved));
         setMessage("Slides generated. Review and edit before downloading.");
       }),
