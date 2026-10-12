@@ -1,7 +1,10 @@
-# Future server integrations
+# Server integrations
 
-The Phase 1 MVP intentionally has no live backend or provider clients. Shared business rules are already in `domain/workspace`; storage is behind `application/workspace-repository.ts`.
+`presentations/` validates Supabase bearer sessions, enforces owner-scoped access,
+requests structured slide content from OpenAI, and exports PowerPoint/PDF files.
+Provider modules are server-only. Browser code uses the Supabase publishable key;
+no service-role key is required. Keep OPENAI_API_KEY server-side.
 
-In Phase 2, add authentication and user-scoped database/storage services here. Mark implementation modules with `import 'server-only'`, validate and authorize requests on the server, and expose only safe operations through Next.js route handlers/server actions. Provider credentials stay server-side. Do not import these modules from visual components.
-
-Later integrations must use durable background processing and project-specific context, and must not pretend to work until configured and tested. See [the architecture guide](../docs/ARCHITECTURE.md).
+Apply the migration and follow [the setup guide](../docs/PRESENTATIONS.md) before use.
+Workspace projects/tasks remain the existing browser-storage demo; the live backend
+currently covers presentations and their private uploaded assets only.

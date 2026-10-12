@@ -1,6 +1,10 @@
 /* Brand and UI theme: edit semantic tokens here for a redesign. */
 :root {
   color-scheme: dark;
+  --color-presentation-paper: #f5f1e9;
+  --color-presentation-ink: #202124;
+  --color-presentation-blue: #14283d;
+  --color-presentation-white: #ffffff;
   --color-text: #f3f3f3;
   --color-text-secondary: #b0b0b0;
   --color-text-muted: #a0a0a0;

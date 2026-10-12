@@ -80,3 +80,10 @@ for other date formats. Unknown commands show guidance rather than changing data
 Assignment stores a name on the task; it does not create team accounts or notifications.
 The demo still saves to this browser only. Stale edit previews are rejected so they
 cannot overwrite subsequent changes.
+
+## Private presentation generation
+
+A Supabase-backed presentation studio adds a saved gallery, private uploads, three
+templates, OpenAI generation, editable slides, and PowerPoint/PDF downloads. Follow
+[the presentation setup guide](docs/PRESENTATIONS.md) to apply the SQL access rules,
+configure authentication redirects and redeploy with the required environment values.

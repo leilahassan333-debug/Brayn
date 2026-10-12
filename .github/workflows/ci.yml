@@ -22,6 +22,16 @@ jobs:
       - run: npm run test:e2e
         env:
           CI: true
+      - name: Build presentation studio with mock connection settings
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: https://testproject.supabase.co
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: public-test-key
+      - name: Test presentation workflow with mocked providers
+        run: npx playwright test tests/e2e/presentations.spec.ts
+        env:
+          CI: true
+          TEST_PRESENTATIONS: true
       - uses: actions/upload-artifact@v4
         if: failure()
         with:

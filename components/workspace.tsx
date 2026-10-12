@@ -22,6 +22,12 @@ import { ProjectDialog } from "@/features/projects/project-dialog";
 import { TaskDialog } from "@/features/projects/task-dialog";
 import { IntegrationPreviewDialog } from "@/features/creative/integration-preview-dialog";
 
+const StudioRoot = dynamic(
+  () => import("@/integrations/presentations/studio-root"),
+);
+const hasPresentationStorage =
+  !!process.env.NEXT_PUBLIC_SUPABASE_URL &&
+  !!process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 const HomeEditor = dynamic(() => import("@/integrations/builder/home-editor"));
 const builderApiKey = process.env.NEXT_PUBLIC_BUILDER_API_KEY?.trim();
 
@@ -92,7 +98,9 @@ export default function Workspace({
               {page === "Projects" && <ProjectsScreen {...controller} />}
               {page === "Project" && <ProjectScreen {...controller} />}
               {page === "Activity" && <ActivityScreen {...controller} />}
-              {(page === "Strategy" || page === "Brief") && (
+              {page === "Brief" && hasPresentationStorage && <StudioRoot />}
+              {(page === "Strategy" ||
+                (page === "Brief" && !hasPresentationStorage)) && (
                 <CreativeScreen {...controller} />
               )}
               {page === "Meetings" && <MeetingsScreen {...controller} />}
