@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ChevronDown,
   Plus,
@@ -5,8 +6,6 @@ import {
   Sparkles,
   FolderClosed,
   Home,
-  LayoutTemplate,
-  Video,
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,11 +13,8 @@ import type { WorkspaceController } from "@/application/use-workspace-controller
 
 const nav = [
   { name: "Home", icon: Home },
-  { name: "Projects", icon: FolderClosed },
   { name: "Activity", icon: Zap },
-  { name: "Strategy", icon: Sparkles },
-  { name: "Brief", icon: LayoutTemplate },
-  { name: "Meetings", icon: Video },
+  { name: "Projects", icon: FolderClosed },
 ];
 export function Sidebar({
   data,
@@ -40,6 +36,7 @@ export function Sidebar({
   | "go"
   | "createProject"
 >) {
+  const [filesExpanded, setFilesExpanded] = useState(false);
   return (
     <aside className={`sidebar ${sidebar ? "open" : ""}`}>
       <button
@@ -69,12 +66,41 @@ export function Sidebar({
           >
             <n.icon size={18} />
             <span>{n.name}</span>
-            {n.name === "Meetings" && <span className="nav-count">2</span>}
             {n.name === "Home" && page === "Home" && (
               <span className="nav-dot" />
             )}
           </button>
         ))}
+        <button
+          className={`nav-item ${["Strategy", "Brief", "Files"].includes(page) ? "active" : ""}`}
+          aria-expanded={filesExpanded}
+          aria-controls="files-navigation"
+          onClick={() => setFilesExpanded((value) => !value)}
+        >
+          <FolderClosed size={18} />
+          <span>Files</span>
+          <ChevronDown
+            size={16}
+            className={filesExpanded ? "expanded-chevron" : ""}
+          />
+        </button>
+        {filesExpanded && (
+          <div id="files-navigation" className="files-subnav">
+            {[
+              ["Brand Strategy", "Strategy"],
+              ["Design Presentation", "Brief"],
+              ["Open Files", "Files"],
+            ].map(([label, target]) => (
+              <button
+                key={target}
+                className={`nav-item ${page === target ? "active" : ""}`}
+                onClick={() => go(target)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        )}
       </nav>
       <div className="project-label">
         <span>YOUR PROJECTS</span>

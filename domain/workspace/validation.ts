@@ -62,10 +62,21 @@ export function decodeWorkspace(value: unknown): WorkspaceState {
       throw new ValidationError("Invalid saved project.");
     projectIds.add(project.id as string);
     date(project.deadline);
+    if (project.startDate !== undefined) date(project.startDate);
     for (const task of project.tasks) {
       object(task);
       strings(task, ["id", "title", "date"]);
       date(task.date);
+      if (
+        task.priority !== undefined &&
+        !["Low", "Medium", "High"].includes(String(task.priority))
+      )
+        throw new ValidationError("Invalid task priority.");
+      if (
+        task.assignee !== undefined &&
+        (typeof task.assignee !== "string" || task.assignee.length > 80)
+      )
+        throw new ValidationError("Invalid task assignee.");
       if (
         !task.id ||
         taskIds.has(task.id as string) ||

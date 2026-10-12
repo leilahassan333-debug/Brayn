@@ -17,10 +17,7 @@ export function TaskDialog({
   "formError" | "date" | "editTask" | "close" | "saveTask"
 >) {
   return (
-    <Modal
-      title={editTask ? "Edit task" : "Add task"}
-      close={close}
-    >
+    <Modal title={editTask ? "Edit task" : "Add task"} close={close}>
       {formError && (
         <div className="error-banner" role="alert">
           {formError}
@@ -60,6 +57,26 @@ export function TaskDialog({
               max="100"
               step="0.25"
               defaultValue={editTask?.duration ?? 1}
+            />
+          </Field>
+        </div>
+        <div className="form-grid">
+          <Field label="Task priority">
+            <select
+              name="priority"
+              defaultValue={editTask?.priority ?? "Medium"}
+            >
+              {["Low", "Medium", "High"].map((value) => (
+                <option key={value}>{value}</option>
+              ))}
+            </select>
+          </Field>
+          <Field label="Assignee">
+            <input
+              name="assignee"
+              maxLength={80}
+              defaultValue={editTask?.assignee ?? ""}
+              placeholder="Name (optional)"
             />
           </Field>
         </div>

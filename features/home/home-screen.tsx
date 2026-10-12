@@ -45,6 +45,7 @@ export function HomeScreen(props: HomeProps) {
         }
       />
       <OverviewStats overview={props.overview} />
+      <Button variant="link" className="meetings-shortcut" onClick={() => props.go("Meetings")}>Review client meetings</Button>
       <div className="home-grid">
         <CalendarPanel {...props} />
         <aside className="right-rail">

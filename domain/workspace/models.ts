@@ -4,6 +4,8 @@ export type Task = {
   date: string;
   duration: number;
   done: boolean;
+  priority?: "Low" | "Medium" | "High";
+  assignee?: string;
 };
 export type Project = {
   id: string;
@@ -14,6 +16,7 @@ export type Project = {
   status: string;
   priority: string;
   deadline: string;
+  startDate?: string;
   color: string;
   tasks: Task[];
   notes: string;
@@ -49,8 +52,12 @@ export type ProjectDraft = Pick<
   | "status"
   | "priority"
   | "deadline"
+  | "startDate"
 >;
-export type TaskDraft = Pick<Task, "title" | "date" | "duration">;
+export type TaskDraft = Pick<
+  Task,
+  "title" | "date" | "duration" | "priority" | "assignee"
+>;
 export type CalendarEvent = {
   id: string;
   date: string;

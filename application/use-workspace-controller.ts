@@ -18,6 +18,11 @@ import {
   upsertProject,
   upsertTask,
 } from "@/domain/workspace/commands";
+import {
+  applyTaskProposal,
+  type TaskProposal,
+} from "@/domain/workspace/task-assistant";
+import { suggestedTasks } from "@/domain/workspace/starter-tasks";
 import { calendarTitle, moveCalendar } from "@/domain/workspace/calendar";
 import {
   searchProjects,
@@ -45,6 +50,7 @@ export function useWorkspaceController(
     repository,
     initial,
   );
+  const [starterProjectId, setStarterProjectId] = useState<string | null>(null);
   const [page, setPage] = useState("Home");
   const [selected, setSelected] = useState(initial.projects[0]?.id ?? "");
   const [date, setDate] = useState(initialDate);
@@ -135,6 +141,7 @@ export function useWorkspaceController(
       );
       const id = editProject?.id ?? op.id;
       close();
+      if (!editProject) setStarterProjectId(id);
       setSelected(id);
       setPage("Project");
       setProjectTab("Tasks");
@@ -145,6 +152,44 @@ export function useWorkspaceController(
           : "Your next chapter starts here. Project created!",
       );
       return next;
+    });
+  const acceptStarterTasks = () =>
+    attempt(() => {
+      if (!starterProjectId) return;
+      commit((current) => {
+        const target = current.projects.find((p) => p.id === starterProjectId);
+        if (!target || target.tasks.length)
+          throw new Error(
+            "Starter tasks can only be added to an empty project.",
+          );
+        return suggestedTasks(target.startDate!).reduce(
+          (state, draft) => upsertTask(state, target.id, draft, operation()),
+          current,
+        );
+      });
+      setStarterProjectId(null);
+      setToast(
+        "Five starter tasks added. Edit names and dates in your project.",
+      );
+    });
+  const editProjectTask = (projectId: string, task: Task) => {
+    openProject(projectId);
+    setEditTask(task);
+    setFormError("");
+    setModal("task");
+  };
+  const toggleProjectTask = (projectId: string, task: Task) =>
+    attempt(() => {
+      commit((current) =>
+        toggleTaskCompletion(current, projectId, task.id, operation()),
+      );
+      setToast(task.done ? "Task reopened" : "Task completed");
+    });
+  const applyAssistantTask = (proposal: TaskProposal) =>
+    attempt(() => {
+      commit((current) => applyTaskProposal(current, proposal, operation()));
+      openProject(proposal.projectId);
+      setToast("Task change confirmed and saved");
     });
   const saveTask = (draft: TaskDraft) =>
     attempt(() => {
@@ -185,6 +230,12 @@ export function useWorkspaceController(
   const changeDate = (step: number) => setDate(moveCalendar(date, view, step));
   const dateTitle = calendarTitle(date, view);
   return {
+    starterProjectId,
+    setStarterProjectId,
+    acceptStarterTasks,
+    editProjectTask,
+    toggleProjectTask,
+    applyAssistantTask,
     data,
     overview,
     activeProjects,

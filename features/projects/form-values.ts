@@ -11,6 +11,7 @@ export function projectFormValues(form: HTMLFormElement): ProjectDraft {
     status: value("status"),
     priority: value("priority"),
     deadline: value("deadline"),
+    startDate: value("startDate"),
   };
 }
 export function taskFormValues(form: HTMLFormElement): TaskDraft {
@@ -19,5 +20,7 @@ export function taskFormValues(form: HTMLFormElement): TaskDraft {
     title: String(data.get("title") ?? ""),
     date: String(data.get("date") ?? ""),
     duration: Number(data.get("duration")),
+    priority: String(data.get("priority") ?? "Medium") as TaskDraft["priority"],
+    assignee: String(data.get("assignee") ?? ""),
   };
 }

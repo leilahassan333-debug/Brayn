@@ -73,6 +73,9 @@ export function upsertProject(
     email,
     description: text(input.description, "Description", 1000, false),
     deadline: validDate(input.deadline),
+    startDate: validDate(
+      input.startDate ?? existing?.startDate ?? op.at.slice(0, 10),
+    ),
     color:
       existing?.color ??
       ["purple", "orange", "green"][state.projects.length % 3],
@@ -115,10 +118,20 @@ export function upsertTask(
     throw new ValidationError(
       "Task duration must be 0.25–100 hours in quarter-hour increments.",
     );
+  const priority = input.priority ?? existing?.priority ?? "Medium";
+  if (!priorities.includes(priority))
+    throw new ValidationError("Choose a valid task priority.");
   const task: Task = {
     ...input,
     id: existing?.id ?? op.id,
     title: text(input.title, "Task name", 150),
+    priority,
+    assignee: text(
+      input.assignee ?? existing?.assignee ?? "",
+      "Assignee",
+      80,
+      false,
+    ),
     date: validDate(input.date),
     done: existing?.done ?? false,
   };

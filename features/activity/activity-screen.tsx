@@ -1,3 +1,4 @@
+import { TaskOverview } from "./task-overview";
 import { Panel } from "@/components/ui/panel";
 import { ArrowRight, CalendarDays, CheckCircle2 } from "lucide-react";
 import { parseDate } from "@/domain/workspace/calendar";
@@ -9,9 +10,16 @@ export function ActivityScreen({
   activity,
   activeProjects,
   openProject,
+  editProjectTask,
+  toggleProjectTask,
 }: Pick<
   WorkspaceController,
-  "data" | "activity" | "activeProjects" | "openProject"
+  | "data"
+  | "activity"
+  | "activeProjects"
+  | "openProject"
+  | "editProjectTask"
+  | "toggleProjectTask"
 >) {
   return (
     <>
@@ -19,6 +27,12 @@ export function ActivityScreen({
         eyebrow="TRACK YOUR PROGRESS"
         title="Review workspace activity."
         description="Review project updates, completed tasks and saved notes. Check what changed, identify approaching deadlines and open the related project to follow up."
+      />
+      <TaskOverview
+        data={data}
+        openProject={openProject}
+        editProjectTask={editProjectTask}
+        toggleProjectTask={toggleProjectTask}
       />
       <Panel className="detail-panel">
         <h2>Workspace activity</h2>

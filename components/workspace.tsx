@@ -16,6 +16,8 @@ import { ActivityScreen } from "@/features/activity/activity-screen";
 import { CreativeScreen } from "@/features/creative/creative-screen";
 import { MeetingsScreen } from "@/features/meetings/meetings-screen";
 import { SettingsScreen } from "@/features/settings/settings-screen";
+import { FilesScreen } from "@/features/files/files-screen";
+import { TaskAssistant } from "@/features/assistant/task-assistant";
 import { ProjectDialog } from "@/features/projects/project-dialog";
 import { TaskDialog } from "@/features/projects/task-dialog";
 import { IntegrationPreviewDialog } from "@/features/creative/integration-preview-dialog";
@@ -78,13 +80,15 @@ export default function Workspace({
             </div>
           ) : (
             <>
-              {page === "Home" && (
-                builderApiKey ? (
+              {page === "Files" && <FilesScreen {...controller} />}
+              {page === "Home" &&
+                (builderApiKey ? (
                   <HomeEditor apiKey={builderApiKey} controller={controller}>
                     <HomeScreen {...controller} />
                   </HomeEditor>
-                ) : <HomeScreen {...controller} />
-              )}
+                ) : (
+                  <HomeScreen {...controller} />
+                ))}
               {page === "Projects" && <ProjectsScreen {...controller} />}
               {page === "Project" && <ProjectScreen {...controller} />}
               {page === "Activity" && <ActivityScreen {...controller} />}
@@ -98,6 +102,7 @@ export default function Workspace({
           )}
         </main>
       </div>
+      <TaskAssistant {...controller} />
       <Toast message={toast} dismiss={() => setToast("")} />
       {modal === "project" && <ProjectDialog {...controller} />}
       {modal === "task" && <TaskDialog {...controller} />}

@@ -116,7 +116,8 @@ test("presentation preferences use actual templates, customize and persist", asy
     .click();
   await expect(page.getByRole("status")).toContainText("preferences saved");
   await page.reload();
-  await page.getByRole("button", { name: "Brief", exact: true }).click();
+  await page.getByRole("button", { name: "Files", exact: true }).click();
+  await page.getByRole("button", { name: "Design Presentation", exact: true }).click();
   await expect(
     page.getByText("Expressive presentation", { exact: true }),
   ).toBeVisible();
@@ -166,18 +167,10 @@ test("desktop and mobile render without horizontal overflow or browser errors", 
     ),
   ).toBe(true);
   await page.getByRole("button", { name: "Open navigation" }).click();
-  await page
-    .getByRole("button", { name: "Meetings", exact: false })
-    .first()
-    .click();
-  await expect(
-    page.getByRole("heading", { name: "Review client meetings." }),
-  ).toBeVisible();
-  await expect(
-    page.getByText("Calendar, email acceptance and Zoom are not connected.", {
-      exact: false,
-    }),
-  ).toBeVisible();
+  await page.getByRole("button", { name: "Files", exact: true }).click();
+  await page.getByRole("button", { name: "Open Files", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Open project files." })).toBeVisible();
+  await expect(page.getByText("File uploads are not connected yet", { exact: false })).toBeVisible();
   expect(errors).toEqual([]);
 });
 

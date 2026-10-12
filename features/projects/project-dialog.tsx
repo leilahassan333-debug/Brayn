@@ -21,7 +21,8 @@ export function ProjectDialog({
       close={close}
     >
       <p className="section-description">
-        Set the client, scope, deadline and priority. Add tasks and notes after creating the project.
+        Set the client, scope, deadline and priority. Add tasks and notes after
+        creating the project.
       </p>
       {formError && (
         <div className="error-banner" role="alert">
@@ -92,6 +93,14 @@ export function ProjectDialog({
             </select>
           </Field>
         </div>
+        <Field label="Project start date">
+          <input
+            name="startDate"
+            type="date"
+            required
+            defaultValue={editProject?.startDate ?? dateKey(new Date())}
+          />
+        </Field>
         <Field label="Status">
           <select
             name="status"

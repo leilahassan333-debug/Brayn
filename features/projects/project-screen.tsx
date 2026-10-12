@@ -1,3 +1,4 @@
+import { StarterTaskOffer } from "./starter-task-offer";
 import { TaskList } from "./task-list";
 import { selectProjectProgress } from "@/domain/workspace/selectors";
 import { Panel } from "@/components/ui/panel";
@@ -16,6 +17,9 @@ import { Field } from "@/components/ui/field";
 import type { WorkspaceController } from "@/application/use-workspace-controller";
 
 export function ProjectScreen({
+  starterProjectId,
+  setStarterProjectId,
+  acceptStarterTasks,
   setModal,
   setEditProject,
   setEditTask,
@@ -28,6 +32,9 @@ export function ProjectScreen({
   saveMessage,
 }: Pick<
   WorkspaceController,
+  | "starterProjectId"
+  | "setStarterProjectId"
+  | "acceptStarterTasks"
   | "setModal"
   | "setEditProject"
   | "setEditTask"
@@ -76,6 +83,12 @@ export function ProjectScreen({
           {completed}/{total} tasks done
         </span>
       </div>
+      <StarterTaskOffer
+        project={project}
+        starterProjectId={starterProjectId}
+        setStarterProjectId={setStarterProjectId}
+        acceptStarterTasks={acceptStarterTasks}
+      />
       <div className="project-tabs">
         {["Tasks", "Notes", "Conversation", "Files & outputs"].map((t) => (
           <button
@@ -93,7 +106,11 @@ export function ProjectScreen({
             <div className="section-heading">
               <div>
                 <h2>Project tasks</h2>
-                <p>Break this project into tasks with due dates and priorities. Add or edit a task, then tick it off when finished to update your project progress.</p>
+                <p>
+                  Break this project into tasks with due dates and priorities.
+                  Add or edit a task, then tick it off when finished to update
+                  your project progress.
+                </p>
               </div>
               <Button
                 variant="primary"
@@ -129,7 +146,9 @@ export function ProjectScreen({
           >
             <h2>Project notes</h2>
             <p className="section-description">
-              Keep the client brief, research, feedback and meeting notes together. Edit your private notes here and choose Save notes to keep your changes.
+              Keep the client brief, research, feedback and meeting notes
+              together. Edit your private notes here and choose Save notes to
+              keep your changes.
             </p>
             <Field label="Private notes">
               <textarea name="notes" defaultValue={project.notes} rows={8} />
@@ -143,7 +162,10 @@ export function ProjectScreen({
           <>
             <h2>Private project messages</h2>
             <p className="section-description">
-              Capture quick thoughts, questions and decisions as separate messages. Use this as a running record alongside your longer notes. These messages stay in your workspace and are not sent to clients.
+              Capture quick thoughts, questions and decisions as separate
+              messages. Use this as a running record alongside your longer
+              notes. These messages stay in your workspace and are not sent to
+              clients.
             </p>
             {project.conversation.map((text, i) => (
               <div className="conversation" key={i}>

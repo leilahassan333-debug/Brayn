@@ -57,3 +57,26 @@ GitHub Actions runs these checks on pushes to `main` and pull requests. The brow
 The Home page supports Builder's visual content editor, with registered functional
 Brayn blocks and a native layout fallback. Follow [the connection guide](docs/BUILDER.md)
 to create a Space, configure its public API key and edit your first Page.
+
+## Task workflow
+
+Navigation follows Home → Activity → Projects → Files. Expand Files for Brand
+Strategy, Design Presentation and Open Files. Meetings remain accessible from Home.
+Activity includes a compact task table and offset project task groups; table progress
+is the project's completed task count divided by its total. Task controls remain level.
+
+New projects include a start date and offer five starter tasks. They are added only
+when accepted. Suggested dates are start, +7, +14, +21 and +28 days; all are editable.
+Legacy saved projects and tasks remain supported.
+
+The side task assistant understands local task commands, with no external AI service
+or API key. Try “Add a task to finish the mood board by Friday in Olive Studio”,
+“Rename Moodboard exploration to Final moodboard”, “Assign Moodboard exploration to
+Alex”, or “Reschedule Moodboard exploration to tomorrow”. It asks for missing projects,
+tasks, due dates or names and always previews changes before confirmation. Ambiguous
+matches require a selection. Dates support YYYY-MM-DD, today, tomorrow and weekday
+names; the displayed absolute date is the one that will be saved. Use the task form
+for other date formats. Unknown commands show guidance rather than changing data.
+Assignment stores a name on the task; it does not create team accounts or notifications.
+The demo still saves to this browser only. Stale edit previews are rejected so they
+cannot overwrite subsequent changes.

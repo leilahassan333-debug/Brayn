@@ -33,6 +33,8 @@ export function TaskList({
                 day: "numeric",
               })}{" "}
               <span>·</span> {t.duration}h estimated
+              {t.priority && <> · {t.priority} priority</>}
+              {t.assignee && <> · Assigned to {t.assignee}</>}
             </small>
           </div>
           <Button variant="secondary" compact onClick={() => onEdit(t)}>
